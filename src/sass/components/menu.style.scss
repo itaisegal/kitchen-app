@@ -1,0 +1,52 @@
+.mainMenu {
+  box-shadow: $boxShadow;
+  height: calc(100vh - 20px);
+  padding: 10px;
+  width: 190px;
+
+  &_option {
+    display: flex;
+    position: relative;
+
+    margin-bottom: 10px;
+
+    .iconSvg {
+      width: 34px;
+      height: auto;
+      margin-right: 15px;
+    }
+
+    button {
+      border: 1px solid $backgroundLight;
+      font-family: $fontBold;
+      font-size: 1.1rem;
+      background-color: $backgroundLight;
+      padding: 7px;
+      display: flex;
+      width: 100%;
+      cursor: pointer;
+			color: $textColor;
+			
+			&.active {
+				background-color: #fff;
+				color: $backgroundDisable;
+				border: 1px solid $backgroundDisable;
+			}
+
+      &::after {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        align-self: center;
+        margin-left: auto;
+			}
+			
+			&.active::after {
+				background-color: $backgroundDisable;
+			}
+
+    }
+  }
+}

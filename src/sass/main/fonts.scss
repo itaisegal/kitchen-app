@@ -1,0 +1,33 @@
+/* assistant */
+
+@font-face {
+  font-family: 'assistant-extra';
+  src: url(../../assets/fonts/Assistant-Bold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'assistant-regular';
+  src: url(../../assets/fonts/Assistant-Regular.ttf);
+  font-weight: 400;
+}
+
+/* caveat */
+
+@font-face {
+  font-family: 'caveat-bold';
+  src: url(../../assets/fonts/Caveat-Bold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'caveat-regular';
+  src: url(../../assets/fonts/Caveat-Regular.ttf);
+  font-weight: 400;
+}
+
+html,
+body {
+  font-size: $fontSize;
+  font-family: $fontRegular, sans-serif;
+}

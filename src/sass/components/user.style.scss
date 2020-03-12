@@ -1,0 +1,19 @@
+.userContent {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  img {
+    border-radius: 50%;
+    border: 2px solid $backgroundLight;
+  }
+  a {
+    &:visited,
+    &:link {
+      font-size: 0.8rem;
+      color: $linkColor;
+    }
+  }
+}
