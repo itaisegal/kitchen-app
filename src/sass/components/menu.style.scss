@@ -2,19 +2,13 @@
   box-shadow: $boxShadow;
   height: calc(100vh - 20px);
   padding: 10px;
-  width: 190px;
+  width: 290px;
 
   &_option {
     display: flex;
     position: relative;
 
     margin-bottom: 10px;
-
-    .iconSvg {
-      width: 34px;
-      height: auto;
-      margin-right: 15px;
-    }
 
     button {
       border: 1px solid $backgroundLight;
@@ -26,6 +20,7 @@
       width: 100%;
       cursor: pointer;
 			color: $textColor;
+			align-items: center;
 			
 			&.active {
 				background-color: #fff;
@@ -46,6 +41,18 @@
 			&.active::after {
 				background-color: $backgroundDisable;
 			}
+
+			svg.svgIcon {
+				width: 40px;
+				height: auto;
+				margin: 3px 15px 0 0;
+				fill: $textColor;
+			}
+
+			&.active svg.svgIcon {
+				fill: $backgroundDisable;
+			}
+
 
     }
   }

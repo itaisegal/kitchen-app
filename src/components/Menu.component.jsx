@@ -4,8 +4,13 @@ import { connect } from 'react-redux';
 import Logo from './Logo.component';
 import User from './User.component';
 
+import { ReactComponent as Cart } from '../assets/images/cart.svg';
+import { ReactComponent as Kitchen } from '../assets/images/kitchen.svg';
+import { ReactComponent as Recipes } from '../assets/images/recipes.svg';
+
 function Menu() {
-  const options = ['Kitchen Inventory', 'Recipes', 'Shopping List'];
+	const options = ['Kitchen Inventory', 'Recipes', 'Shopping List'];
+	const icons = [<Kitchen className='svgIcon'/>, <Recipes className='svgIcon'/>, <Cart className='svgIcon'/>];
   const toggle = (event) => {
     event.currentTarget.classList.toggle('active');
   };
@@ -18,8 +23,9 @@ function Menu() {
         {options.map((option, index) => {
           return (
             <li className='mainMenu_option' key={index}>
-              <button className='button' onClick={(event) => toggle(event)}>
-                {option}
+							<button className='button' onClick={(event) => toggle(event)}>
+								{icons[index]}
+                <span>{option}</span>
               </button>
             </li>
           );
