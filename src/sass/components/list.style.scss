@@ -3,11 +3,61 @@
   display: flex;
 
   .list {
-		flex-grow: 1;
-		margin: 100px 2% 2%;
-		box-shadow: $boxShadow;
-		&:nth-child(2){
-			margin: 100px 0 2%;
-		}
+    width: 100%;
+    margin: 100px 2% 2%;
+    box-shadow: $boxShadow;
+
+    &:nth-child(2) {
+      margin: 100px 0 2%;
+    }
+
+    &__item {
+      
+      margin: 1%;
+			background: #eaeaea;
+			font-size: .9rem;
+			
+			& .content {
+				padding: 3%;
+				font-size: inherit;
+			}
+			& .title {
+				width: 100%;
+				padding: 3%;
+				text-align: left;
+				background-color: transparent;
+				font-size: inherit;
+			}
+    }
+
+		
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px;
+      border-bottom: 5px solid #eaeaea;
+      & .title {
+        font-size: 1.4rem;
+      }
+      & .svgIcon {
+        width: 33px;
+        height: auto;
+      }
+      & button.addItem {
+        width: 27px;
+        height: 27px;
+        font-size: 1.4rem;
+        border-radius: 50%;
+        border: none;
+        background-color: $backgroundLight;
+      }
+      button.addItem {
+        width: 27px;
+        height: 27px;
+        box-shadow: $boxShadow;
+      }
+    }
   }
 }

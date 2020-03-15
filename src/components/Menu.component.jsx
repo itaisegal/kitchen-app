@@ -4,13 +4,10 @@ import { connect } from 'react-redux';
 import Logo from './Logo.component';
 import User from './User.component';
 
-import { ReactComponent as Cart } from '../assets/images/cart.svg';
-import { ReactComponent as Kitchen } from '../assets/images/kitchen.svg';
-import { ReactComponent as Recipes } from '../assets/images/recipes.svg';
+export const options = ['Kitchen Inventory', 'Recipes', 'Shopping List'];
 
-function Menu() {
-	const options = ['Kitchen Inventory', 'Recipes', 'Shopping List'];
-	const icons = [<Kitchen className='svgIcon'/>, <Recipes className='svgIcon'/>, <Cart className='svgIcon'/>];
+function Menu(props) {
+	const icons = props.icons;
   const toggle = (event) => {
     event.currentTarget.classList.toggle('active');
   };
