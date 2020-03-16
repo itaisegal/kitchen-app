@@ -9,10 +9,10 @@ import arrayMove from 'array-move';
 
 const DragHandle = sortableHandle(() => <span>::</span>);
 const SortableItem = SortableElement(({ value }) => (
-  <li>
+  <div>
     <DragHandle />
     {value}
-  </li>
+  </div>
 ));
 
 const SortableList = SortableContainer(({ items }) => {
