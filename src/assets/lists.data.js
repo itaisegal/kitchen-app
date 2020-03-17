@@ -1,26 +1,25 @@
 import { icons } from './icons';
-const lists = [
-  {
-    kitchenInventory: {
-      name: 'Kitchen Inventory',
-      icon: icons.Kitchen,
-      color: '#000'
-    }
-  },
-  {
-    recipes: {
-      name: 'Recipes',
-      icon: icons.Recipes,
-      color: '#000'
-    }
-  },
-  {
-    shoppingList: {
-      name: 'Shopping List',
-      icon: icons.Cart,
-      color: '#000'
-    }
-  }
-];
+import USER_DATA from '../components/user.data';
 
-export default lists;
+const ListData = {
+  kitchenInventory: {
+    name: 'Kitchen Inventory',
+    icon: icons.Kitchen,
+    color: '#000',
+    data: USER_DATA.kitchenInventory
+  },
+  recipes: {
+    name: 'Recipes',
+    icon: icons.Recipes,
+    color: '#000',
+    data: USER_DATA.recipes
+  },
+  shoppingList: {
+    name: 'Shopping List',
+    icon: icons.Cart,
+    color: '#000',
+    data: USER_DATA.shoppingList
+  }
+};
+
+export default ListData;

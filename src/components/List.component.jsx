@@ -3,7 +3,7 @@ import ListItem from './ListItem.component';
 import {
   SortableContainer,
   SortableElement,
-  sortableHandle,
+  sortableHandle
 } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
 
@@ -19,7 +19,7 @@ const SortableList = SortableContainer(({ items }) => {
   return (
     <ul>
       {items.map((value, index) => (
-        <SortableItem key={`item-${value}`} index={index} value={value} />
+        <SortableItem key={`item-${index}`} index={index} value={value} />
       ))}
     </ul>
   );
@@ -32,17 +32,19 @@ class List extends React.Component {
       icon: props.icon,
       title: props.title,
       items: [
-        <ListItem title='item' />,
-        <ListItem title='item' />,
-        <ListItem title='item' />,
-        <ListItem title='item' />,
-      ],
+        <ListItem title='item' content='' />,
+        <ListItem title='item' content='' />,
+        <ListItem title='item' content='' />,
+        <ListItem title='item' content='' />
+      ]
     };
+
+    //console.log(props.data);
   }
 
   onSortEnd = ({ oldIndex, newIndex }) => {
     this.setState(({ items }) => ({
-      items: arrayMove(items, oldIndex, newIndex),
+      items: arrayMove(items, oldIndex, newIndex)
     }));
   };
 

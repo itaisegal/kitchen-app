@@ -4,31 +4,23 @@ import { connect } from 'react-redux';
 import Logo from './Logo.component';
 import User from './User.component';
 
-import lists from '../assets/lists.data';
-
-export const options = ['Kitchen Inventory', 'Recipes', 'Shopping List'];
-
 function Menu(props) {
-  const icons = props.icons;
-  const iconsList = [icons.Kitchen, icons.Recipes, icons.Cart];
+  const state = props.listData;
+  const listData = state.listData;
   const toggle = event => {
     event.currentTarget.classList.toggle('active');
   };
-
   return (
     <div className='mainMenu'>
       <Logo />
-      <User />
+      <User photoURL={state.currentUser.photoURL}/>
       <ul>
-        {lists.map(key => {
-          console.log(key);
-        })}
-        {options.map((option, index) => {
+        {listData.map((option, index) => {
           return (
             <li className='mainMenu_option' key={index}>
               <button className='button' onClick={event => toggle(event)}>
-                {iconsList[index]}
-                <span>{option}</span>
+                {option.icon}
+                <span>{option.name}</span>
               </button>
             </li>
           );

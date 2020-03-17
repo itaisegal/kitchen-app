@@ -18,10 +18,7 @@ class ListItem extends React.Component {
         </button>
         {this.state.active ? (
           <div className='content'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo a
-            fugiat sed numquam consequatur necessitatibus magnam quidem ad
-            deserunt eum atque, harum earum, beatae quasi accusantium dolorem
-            velit rem in?
+            {this.state.content}
           </div>
         ) : (
           ''

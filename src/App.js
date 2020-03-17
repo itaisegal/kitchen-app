@@ -1,23 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { setCurrentUser } from './redux/actions/user.action';
 
-import Menu, { options } from './components/Menu.component';
-import List from './components/List.component';
-import { icons } from './assets/icons';
+import Menu from './components/Menu.component';
+// import Lists from './components/Lists.component';
 import Login from './components/Login.component';
 
 class App extends React.Component {
   state = {
-    currentUser: null
+    user: null
   };
 
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
-      createUserProfileDocument(user);
-      this.setState({ currentUser: user });
+    const { setCurrentUser } = this.props;
+
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        userRef.onSnapshot(snapShot => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
+          });
+        });
+      }
+      setCurrentUser(userAuth);
     });
   }
 
@@ -26,16 +36,12 @@ class App extends React.Component {
   }
 
   render() {
-    const login = this.state.currentUser;
-    if (login !== null) {
+    const user = this.props.currentUser;
+    if (user !== null) {
       return (
         <div className='main-content'>
-          <Menu icons={icons} />
-          <div className='lists'>
-            <List type='kitchen' icon={icons.Kitchen} title={options[0]} />
-            <List type='recipes' icon={icons.Recipes} title={options[1]} />
-            <List type='shopping' icon={icons.Cart} title={options[2]} />
-          </div>
+          <Menu />
+          {/*   <Lists /> */}
         </div>
       );
     } else {
@@ -48,4 +54,12 @@ class App extends React.Component {
   }
 }
 
-export default connect()(App);
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+});
+
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

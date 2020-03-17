@@ -3,17 +3,16 @@
   width: 216px;
   h1 {
     font-family: $fontTitle;
-    font-size: 3rem;
-    margin: 0 0 30px;
-    text-align: center;
-    padding-top: 25px;
+    font-size: 2rem;
+    text-align: left;
+    padding-top: 15px;
   }
   .svgIcon {
     width: 100%;
     height: auto;
-    max-width: 40px;
+    max-width: 25px;
     position: absolute;
-    left: 20px;
+    left: 5px;
     transform: rotate(7deg);
   }
 }
